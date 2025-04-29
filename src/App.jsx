@@ -5,6 +5,8 @@ import Posts from "./pages/Posts";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NewPost from "./pages/NewPost";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoutes";
 
 const App = () => {
   return (
@@ -14,9 +16,30 @@ const App = () => {
       <main className="mx-auto p-6 max-w-[1110px]">
         <Routes>
           <Route path="/" element={<Posts />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/new" element={<NewPost />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/new"
+            element={
+              <PrivateRoute>
+                <NewPost />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </main>
     </div>

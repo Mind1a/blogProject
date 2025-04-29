@@ -15,6 +15,7 @@ const NewPost = () => {
   } = useForm({
     resolver: zodResolver(blogSchema),
   });
+
   // React hook form end
 
   // React Query Start
@@ -24,7 +25,7 @@ const NewPost = () => {
   const { mutate } = useMutation({
     mutationFn: createBlogs,
     onSuccess: () => {
-      // queryClient.invalidateQueries(["blogs"]);
+      queryClient.invalidateQueries(["blogs"]);
       alert("Blog was created");
     },
   });

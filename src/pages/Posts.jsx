@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchBlogs } from "../api/api";
+import { useState } from "react";
 
 const Posts = () => {
   const { data, isLoading, isError } = useQuery({
