@@ -10,7 +10,7 @@ import PrivateRoute from "./routes/PrivateRoutes";
 
 const App = () => {
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="min-h-screen font-noto">
       <Header />
 
       <main className="mx-auto p-6 max-w-[1110px]">

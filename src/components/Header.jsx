@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -12,11 +13,13 @@ const Header = () => {
     navigate("/");
   };
   return (
-    <header className="bg-white shadow p-4">
+    <header className="shadow p-4">
       <nav className="flex items-center mx-auto p-6 w-full max-w-[1110px]">
-        <ul className="flex items-center gap-[24px] font-medium text-blue-600">
+        <ul className="flex items-center gap-[24px] font-medium text-blue-600 dark:text-blue-50">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="test">
+              Home
+            </Link>
           </li>
 
           {user ? (
@@ -40,6 +43,9 @@ const Header = () => {
             <button className="cursor-pointer" onClick={handleLogOut}>
               Log Out
             </button>
+          </li>
+          <li>
+            <ThemeToggle />
           </li>
         </ul>
       </nav>
